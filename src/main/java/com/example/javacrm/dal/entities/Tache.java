@@ -18,6 +18,9 @@ public class Tache {
     @Column(name = "objet", nullable = false)
     private String objet;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "date_creation", nullable = false)
     private LocalDate dateCreation;
 

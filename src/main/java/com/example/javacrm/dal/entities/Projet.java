@@ -17,21 +17,31 @@ public class Projet {
     @Column(name = "id")
     private Integer id;
 
+    @Setter
     @Column(name = "theme", nullable = false)
     private String theme;
 
+    @Setter
+    @Column(name = "commentaire")
+    private String commentaire;
+
+    @Setter
     @Column(name = "date_creation", nullable = false)
     private LocalDate dateCreation;
 
+    @Setter
     @Column(name = "date_modification")
     private LocalDate dateModification;
 
+    @Setter
     @Column(name = "deadline")
     private LocalDate deadline;
 
+    @Setter
     @Column(name = "statut")
     StatutProjet statut;
 
+    //TODO retourner une copie de la liste dans le getter
     @Setter
     @ManyToMany
     @JoinTable(name = "Projet_utilisateurs",

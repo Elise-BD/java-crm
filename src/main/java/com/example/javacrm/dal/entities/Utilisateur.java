@@ -2,6 +2,7 @@ package com.example.javacrm.dal.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +27,9 @@ public class Utilisateur {
     @Column(name = "fonction")
     private String fonction;
 
+    //TODO retourner une copie de la liste dans le getter
+    @Setter
     @OneToMany(mappedBy = "utilisateur", orphanRemoval = true)
     private List<Tache> taches = new ArrayList<>();
 
-    public void setTaches(List<Tache> taches) {
-        this.taches = taches;
-    }
 }
