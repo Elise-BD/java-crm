@@ -15,6 +15,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -33,6 +36,21 @@ public class Utilisateur implements UserDetails {
     private String username;
     private String password;
     private boolean enabled = true;
+  
+  @Column(name = "nom", nullable = false)
+    private String nom;
+
+    @Column(name = "prenom", nullable = false)
+    private String prenom;
+
+    @Column(name = "fonction")
+    private String fonction;
+
+    @OneToMany(mappedBy = "utilisateur", orphanRemoval = true)
+    private List<Tache> taches = new ArrayList<>();
+
+    public void setTaches(List<Tache> taches) {
+        this.taches = taches;
 
 
     @Override
